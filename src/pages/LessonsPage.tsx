@@ -591,7 +591,7 @@ export default function LessonsPage() {
                                     <ul className="space-y-2">
                                       {section.items.map((item, iIdx) => (
                                         <li key={iIdx} className="text-gray-300 leading-relaxed flex items-start gap-2 text-base">
-                                          <span className={`${colorClasses.text} mt-1 flex-shrink-0`}>•</span>
+                                          <span className={`${colorClasses.text} mt-1 shrink-0`}>•</span>
                                           <span>{item}</span>
                                         </li>
                                       ))}
@@ -752,7 +752,7 @@ export default function LessonsPage() {
             </div>
             <button
               onClick={() => navigate("/rules")}
-              className="px-12 py-4 bg-gradient-to-r from-orange-600 via-amber-500 to-orange-600 text-white text-lg font-bold hover:scale-105 transition-all duration-300 shadow-lg shadow-orange-500/50"
+              className="px-12 py-4 bg-linear-to-r from-orange-600 via-amber-500 to-orange-600 text-white text-lg font-bold hover:scale-105 transition-all duration-300 shadow-lg shadow-orange-500/50"
             >
               Bắt đầu Minigame →
             </button>
