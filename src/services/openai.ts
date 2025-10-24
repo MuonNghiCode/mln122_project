@@ -1,6 +1,6 @@
 // OpenAI API Service
-const OPENAI_API_KEY = "VITE_OPENAI_API_KEY";
-const OPENAI_BASE_URL = "https://api.openai.com/v1";
+const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
+const OPENAI_BASE_URL = import.meta.env.VITE_OPENAI_BASE_URL || "https://api.openai.com/v1";
 
 export interface ChatMessage {
   role: "system" | "user" | "assistant";
