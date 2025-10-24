@@ -709,13 +709,35 @@ const shuffleArray = <T>(array: T[]): T[] => {
   return shuffled;
 };
 
-// Get rounds with randomized choice positions to prevent spam
+// Get rounds with randomized scenarios and shuffled choice positions
 export const getShuffledRounds = (role: string): Round[] => {
-  const rounds = ROUNDS_BY_ROLE[role] || [];
-  return rounds.map(round => ({
-    ...round,
-    choices: shuffleArray(round.choices),
-  }));
+  const baseRounds = ROUNDS_BY_ROLE[role] || [];
+  
+  return baseRounds.map((baseRound, index) => {
+    const roundNumber = index + 1;
+    
+    // Check if variations exist for this round
+    let variations: Round[] = [];
+    if (role === 'smallbiz' && SMALLBIZ_ROUND_VARIATIONS[roundNumber]) {
+      variations = SMALLBIZ_ROUND_VARIATIONS[roundNumber];
+    } else if (role === 'platform' && PLATFORM_ROUND_VARIATIONS[roundNumber]) {
+      variations = PLATFORM_ROUND_VARIATIONS[roundNumber];
+    } else if (role === 'regulator' && REGULATOR_ROUND_VARIATIONS[roundNumber]) {
+      variations = REGULATOR_ROUND_VARIATIONS[roundNumber];
+    }
+    
+    // Combine base round with variations to create pool of possible scenarios
+    const allPossibleRounds = [baseRound, ...variations];
+    
+    // Randomly pick one scenario from the pool
+    const selectedRound = allPossibleRounds[Math.floor(Math.random() * allPossibleRounds.length)];
+    
+    // Shuffle choices within the selected round
+    return {
+      ...selectedRound,
+      choices: shuffleArray(selectedRound.choices),
+    };
+  });
 };
 
 // Alternative scenarios for variation (randomly picked per game)
