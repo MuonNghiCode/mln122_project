@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -302,6 +303,7 @@ export default function HomePage() {
           </motion.div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

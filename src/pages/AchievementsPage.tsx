@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useGame } from "../contexts/GameContext";
 import { ACHIEVEMENTS } from "../config/achievementsConfig";
+import Footer from "../components/Footer";
 
 export default function AchievementsPage() {
   const navigate = useNavigate();
@@ -279,6 +280,7 @@ export default function AchievementsPage() {
           </motion.div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

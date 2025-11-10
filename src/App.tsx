@@ -8,6 +8,7 @@ import RoleSelectPage from "./pages/RoleSelectPage";
 import GamePage from "./pages/GamePage";
 import AchievementsPage from "./pages/AchievementsPage";
 import ResultPage from "./pages/ResultPage";
+import AcademicIntegrityPage from "./pages/AcademicIntegrityPage";
 import { useGame } from "./contexts/GameContext";
 import type { Role } from "./types/game";
 
@@ -62,6 +63,10 @@ export default function App() {
         />
         <Route path="/game" element={<GamePage />} />
         <Route path="/result" element={<ResultPage />} />
+        <Route
+          path="/academic-integrity"
+          element={<AcademicIntegrityPage />}
+        />
       </Routes>
     </div>
   );

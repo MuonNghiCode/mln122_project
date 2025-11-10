@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import FloatingChatbot from "../components/FloatingChatbot";
+import Footer from "../components/Footer";
 
 export default function LessonsPage() {
   const navigate = useNavigate();
@@ -760,6 +761,7 @@ export default function LessonsPage() {
           )}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
